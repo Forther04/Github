@@ -155,6 +155,7 @@ html, body {
 
 #transition {
     position: absolute;
+    position: fixed;
     height: 100vh;
     width: 100vw;
     right: 0;
@@ -190,4 +191,185 @@ html, body {
     padding-right: 20px ;
     border-radius: 1em;
     border: 5px gold solid;
+    box-shadow: 0px 0px 20px rgba(245, 0, 0, 0.708);
+}
+
+/*FORM____________________*/
+#eye {
+    position: absolute;
+    color: gray;
+    margin-left: 41.3em;
+    margin-top: 11.7em;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#eye:hover {
+    color: limegreen;
+}
+
+#form{
+    position: absolute;
+    display: flex;
+}
+
+#form2{
+    display: flex;
+}
+
+#Pschool {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 7em;
+    color: white;
+    margin-left: 22em;
+    background-color: rgb(0, 48, 181) ;
+    width: 40em;
+    height: 13em;
+    border-radius: 0.8em;
+    border: 3px solid gold;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 44.5vh;
+}
+
+
+#name {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 7.5em;
+    color: white;
+    margin-left: 16em;
+    background-color: rgb(0, 48, 181) ;
+    width: 25em;
+    height: 25em;
+    border-radius: 0.8em;
+    border: 3px solid gold;
+    align-items: center;
+    gap: 15px;
+}
+
+#email {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 7.5em;
+    color: white;
+    margin-left: 43em;
+    background-color: rgb(0, 48, 181) ;
+    width: 25em;
+    height: 13em;
+    border-radius: 0.8em;
+    border: 3px solid gold;
+    align-items: center;
+    gap: 15px;
+}
+
+#address {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 21.5em;
+    color: white;
+    margin-left: 43em;
+    background-color: rgb(0, 48, 181) ;
+    width: 25em;
+    height: 11em;
+    border-radius: 0.8em;
+    border: 3px solid gold;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons{
+    position: absolute;
+    color: white;
+    font-size: 2em;
+    left: 11.3em;
+    margin-top: 0.8em;
+}
+
+#icon2 {
+    right: -50px;
+}
+
+#emails {
+    left: 2.7em;
+}
+
+#emails1 {
+    left: 9em;
+}
+
+.input {
+    width: 20em;
+    height: 2em;
+    text-align: center;
+}
+
+.email{
+    width: 20em;
+    height: 2em;
+    text-align: center;
+}
+
+#bday{
+    position: absolute;
+    color: rgba(255, 255, 255, 0.833);
+    bottom: 13px;
+    font-size: 10px;
+}
+
+#school1 {
+    margin-left: 17.5em;
+}
+
+#school2 {
+    left: 12.3em;
+}
+
+#LRN {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 21.5em;
+    color: white;
+    margin-left: 42.5em;
+    background-color: rgb(0, 48, 181) ;
+    width: 19.5em;
+    height: 11em;
+    border-radius: 0.8em;
+    border: 3px solid gold;
+    align-items: center;
+    gap: 15px;
+}
+
+#Graduated {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 21.5em;
+    color: white;
+    margin-left: 22em;
+    background-color: rgb(0, 48, 181) ;
+    width: 19.5em;
+    height: 11em;
+    border-radius: 0.8em;
+    border: 3px solid gold;
+    align-items: center;
+    gap: 15px;
+}
+
+#lrn {
+    left: 2.4em;
+}
+
+#lrn1 {
+    left: 6.35em;
 }

@@ -107,3 +107,71 @@ picture.addEventListener("mouseleave", function() {
     information.classList.remove("ShowInformation");
     information.style.opacity = "0%"
 })
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Mapping sections to their corresponding icons
+    const sections = {
+        "container": "user",
+        "PreviousSchool": "school",
+        "Strand": "strand",
+        "Picture": "picture"
+    };
+
+    // Get all icons
+    const icons = document.querySelectorAll(".icon");
+
+    // Observer configuration
+    const observer = new IntersectionObserver(entries => {
+        let activeIcon = null;
+
+        entries.forEach(entry => {
+            console.log(`Checking section: ${entry.target.id}, isIntersecting: ${entry.isIntersecting}, ratio: ${entry.intersectionRatio}`);
+
+            const iconId = sections[entry.target.id];
+            if (iconId && entry.isIntersecting) {
+                activeIcon = document.getElementById(iconId);
+            }
+        });
+
+        // Reset all icons first
+        icons.forEach(icon => icon.style.color = "");
+
+        // Highlight only the active one
+        if (activeIcon) {
+            activeIcon.style.color = "limegreen";
+        }
+    }, { threshold: 0.5 }); // 50% visibility required to trigger
+
+    // Observe all target sections
+    Object.keys(sections).forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            observer.observe(section);
+
+        }
+    });
+});
+
+document.querySelectorAll(".input").forEach(input => {
+    input.addEventListener("input", function() {
+        this.value = this.value.replace(/\b\w/g, char => char.toUpperCase());
+    });
+});
+
+function togglePassword(){
+    let eyeIcon = document.getElementById("eye")
+    let password = document.getElementById("password")
+
+    if (password.type === "password") {
+        password.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    } 
+    else {
+        password.type = "password";
+        eyeIcon.classList.add("fa-eye");
+        eyeIcon.classList.remove("fa-eye-slash");
+    }
+}

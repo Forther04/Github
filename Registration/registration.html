@@ -12,6 +12,48 @@
 <body>
     <div id ="transition"></div>
     <div id="container"> 
+        <!--!User Info-->
+        <form method="POST" id="form">
+            <div id="name">
+                <i class="fa-solid fa-address-card icons"></i>
+                <h1>Name</h1>
+                <i class="fa-solid fa-address-card icons" id="icon2"></i>
+                <input type="text" placeholder="Given Name" class="input" required ca>
+                <input type="text" placeholder="Middle Name" class="input" required>
+                <input type="text" placeholder="Last Name" class="input" required>
+                <select id="suffix" class="input" required>
+                    <option value="" disabled selected hidden>Suffix</option>
+                    <option>N/A</option>
+                    <option>JR</option>
+                    <option>II</option>
+                    <option>III</option>
+                    <option>IV</option>
+                    <option>V</option>
+                </select>
+                <select id="gender" class="input" required>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+                <input type="date" placeholder="Birthday" class="input" required>
+                <p id="bday">(Birthday)</p>
+            </div>
+            <div id="email">
+                <i class="fa-solid fa-user icons" id="emails"></i>
+                <h1>Account</h1>
+                <i class="fa-solid fa-user icons" id="emails1"></i>
+                <input type="email" placeholder="Email" class="email" required>
+                <input type="password" placeholder="Password" class="input" id="password" required>
+            </div>
+            <i class="fa-solid fa-eye eye" id="eye" onclick="togglePassword()"></i>
+            <div id="address">
+                <i class="fa-solid fa-location-dot icons" id="emails"></i>
+                <h1>Address</h1>
+                <i class="fa-solid fa-location-dot icons" id="emails1"></i>
+                <input type="text" placeholder="Address" class="input" required>
+            </div>
+        </form>
+        <!--!Navigation-->
         <div><h1 id="regtext">Registration</h1></div>
         <div id="navigation">
             <div id="information">
@@ -28,8 +70,30 @@
         <h1 class="title">User Information</h1>
     </div>
     <hr class="breakline">
+
+    <!--!Previouse School-->
     <div id="PreviousSchool">
         <h1 class="title">Previous School</h1>
+        <form method="POST" id="form2">
+            <div id="Pschool">
+                <i class="fa-solid fa-school-flag icons" id="school1"></i></i>
+                <h1>Previous School Information</h1>
+                <i class="fa-solid fa-school-flag icons" id="school2"></i>
+                <input type="text" placeholder="School Name" class="input" required ca>
+                <input type="text" placeholder="School Address" class="input" required>
+            </div>
+            <div id="LRN">
+                <i class="fa-solid fa-book-open-reader icons" id="lrn"></i></i>
+                <h1>LRN</h1>
+                <i class="fa-solid fa-book-open-reader icons" id="lrn1"></i></i>
+                <input type="text" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="LRN" class="input" required>
+            </div>
+            <div id="Graduated">
+                <h1>Year Graduated</h1>
+                <input type="date" class="input" required>
+            </div>
+        </form>
+
     </div>
     <hr class="breakline">
     <div id="Strand">
