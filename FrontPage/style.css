@@ -1,251 +1,241 @@
 body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
-
 /*BACKGROUND-----------------------*/
-#background_image{
-    height: 100vh;
-    width: 100vw;
-    background-image: url("../1-Assest/Backgroudn\ 2.jpg");
-    background-size: 80% 100%;
-    background-repeat: no-repeat;
-    z-index: -1;
-    animation: MoveBackground 10s linear infinite alternate;
-    z-index: -1;
+#background_image {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../1-Assest/Backgroudn\ 2.jpg");
+  background-size: 80% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: MoveBackground 10s linear infinite alternate;
 }
 
 @keyframes MoveBackground {
-    from {
-        background-position: -100% 100%;
-    }
-    to {
-        background-position: 0% 100;
-    }
+  from {
+    background-position: -100% 100%;
+  }
+  to {
+    background-position: 0% 100;
+  }
 }
 
-
-#background_color{
-    display: flex;
-    height: 100vh;
-    width: 40vw;
-    margin-left: auto;
-    background-color: rgb(0, 48, 181);
-    justify-content: center;
-    align-items: center;
+#background_color {
+  display: flex;
+  height: 100vh;
+  width: 40vw;
+  margin-left: auto;
+  background-color: rgb(0, 48, 181);
+  justify-content: center;
+  align-items: center;
 }
-
 
 #border {
-    width: 0.5em;
-    height: 100vh;
-    margin-right: auto;
-    background-color: gold;
-    z-index: 1;
-    box-shadow: 5px 0px 10px;
+  width: 0.5em;
+  height: 100vh;
+  margin-right: auto;
+  background-color: gold;
+  z-index: 1;
+  box-shadow: 5px 0px 10px;
 }
 
 /*Text Above-----------------------*/
 #input {
-    position: absolute;
-    width: 20em;
-    height: 25em;
-    background-color: white;
-    border: solid black 0.15em;
-    border-radius: 1em;
-    opacity: 0;
-    transform: translateY(20%);
-    animation: start 1s ease-in forwards;
-    z-index: 2;
-    box-shadow: 0px 0px 10px 5px rgb(2, 2, 108);
+  position: absolute;
+  width: 20em;
+  height: 25em;
+  background-color: white;
+  border: solid black 0.15em;
+  border-radius: 1em;
+  opacity: 0;
+  transform: translateY(20%);
+  animation: start 1s ease-in forwards;
+  z-index: 2;
+  box-shadow: 0px 0px 10px 5px rgb(2, 2, 108);
 }
 
 @keyframes start {
-    0% {
-        transform: translateX(0%) translateY(20%);
-        opacity: 0;
-    }   
-    
-    100% {
-        transform: translateX(0%) translateX(0%);
-        opacity: 1;
-    }
+  0% {
+    transform: translateX(0%) translateY(20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0%) translateX(0%);
+    opacity: 1;
+  }
 }
 
 #logo {
-    position: absolute;
-    top: 5px;
-    left: 0.5em;
-    width: 3em;
-    height: auto;
+  position: absolute;
+  top: 5px;
+  left: 0.5em;
+  width: 3em;
+  height: auto;
 }
 
 #logo2 {
-    position: absolute;
-    top: 5px;
-    left: 16.6em;
-    width: 3em;
-    height: auto;
-    outline: 100em;
+  position: absolute;
+  top: 5px;
+  left: 16.6em;
+  width: 3em;
+  height: auto;
+  outline: 100em;
 }
 
-#portal{
-    margin-left: 3.68em;
-    margin-top: 1em;
-    font-size: 1em;
-    color: rgb(46, 46, 46);
-
+#portal {
+  margin-left: 3.68em;
+  margin-top: 1em;
+  font-size: 1em;
+  color: rgb(46, 46, 46);
 }
 
 #login {
-    margin-top: 1.5em;
-    font-size: 2em;
-    margin-left: 3.5em;
-    color: blue;
-    -webkit-text-stroke: 1px rgb(11, 0, 0);;
+  margin-top: 1.5em;
+  font-size: 2em;
+  margin-left: 3.5em;
+  color: blue;
+  -webkit-text-stroke: 1px rgb(11, 0, 0);
 }
 
 /*Input-----------------------*/
 
 .icon {
-    position: absolute;
-    margin-left: 7px;
-    margin-top: 2px;
-    font-size: 1.3em;
-    color: rgba(61, 61, 61, 0.605);
+  position: absolute;
+  margin-left: 7px;
+  margin-top: 2px;
+  font-size: 1.3em;
+  color: rgba(61, 61, 61, 0.605);
 }
 
 .eye {
-    position: absolute;
-    margin-top: 45px;
-    font-size: 1.3em;
-    color: rgba(61, 61, 61, 0.605);
-    margin-left: 10.8em;
-    cursor: pointer;
+  position: absolute;
+  margin-top: 45px;
+  font-size: 1.3em;
+  color: rgba(61, 61, 61, 0.605);
+  margin-left: 10.8em;
+  cursor: pointer;
 }
 
 .eye:hover {
-    position: absolute;
-    margin-top: 45px;
-    font-size: 1.3em;
-    color: rgba(2, 185, 15, 0.605);
-    margin-left: 10.8em;
-    cursor: pointer;
+  position: absolute;
+  margin-top: 45px;
+  font-size: 1.3em;
+  color: rgba(2, 185, 15, 0.605);
+  margin-left: 10.8em;
+  cursor: pointer;
 }
 
-
 .input {
-    all: unset;
-    border: black solid 1px;
-    border-radius: 10px;
-    padding-left: 2em;
-    padding-right: 2em;
+  all: unset;
+  border: black solid 1px;
+  border-radius: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .input:focus {
-    all: unset;
-    border: gold solid 2px;
-    border-radius: 10px;
-    padding-left: 2em;
-    padding-right: 2em;
+  all: unset;
+  border: gold solid 2px;
+  border-radius: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
 }
-
 
 #form {
-    flex-direction: column;
-    display: flex;
-    height: 8em;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  flex-direction: column;
+  display: flex;
+  height: 8em;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-#submit{
-    position: absolute !important;
-    all: unset;
-    bottom: 6em;
-    border: black solid 1px;
-    border-radius: 10px;
-    padding-left: 2em;
-    padding-right: 2em;
+#submit {
+  position: absolute !important;
+  all: unset;
+  bottom: 6em;
+  border: black solid 1px;
+  border-radius: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
-#submit:hover{
-    position: absolute !important;
-    all: unset;
-    bottom: 5.4em;
-    background-color: gold;
-    border: black solid 1px;
-    border-radius: 10px;
-    padding-left: 2em;
-    padding-right: 2em;
-    font-size: 1.1em;
-    cursor: pointer;
+#submit:hover {
+  position: absolute !important;
+  all: unset;
+  bottom: 5.4em;
+  background-color: gold;
+  border: black solid 1px;
+  border-radius: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 1.1em;
+  cursor: pointer;
 }
 
 .signup {
-    position: absolute;
-    bottom: 10px;
-    margin-left: 4em;
-    font-size: 0.7em;
+  position: absolute;
+  bottom: 10px;
+  margin-left: 4em;
+  font-size: 0.7em;
 }
 
 #signupButton {
-    all:unset;
-    color: blue;
-    font-size: 1em;
-    margin-left: 13em;
-    margin-top: 4.8em;
-    cursor: pointer;
-    font-weight: 10em;
-
+  all: unset;
+  color: blue;
+  font-size: 1em;
+  margin-left: 13em;
+  margin-top: 4.8em;
+  cursor: pointer;
+  font-weight: 10em;
 }
 
 #signupButton:hover {
-    all:unset;
-    color: rgba(2, 185, 15, 0.605);
-    font-size: 1em;
-    margin-left: 13em;
-    margin-top: 4.8em;
-    cursor: pointer;
-    font-weight: 10em;
-
+  all: unset;
+  color: rgba(2, 185, 15, 0.605);
+  font-size: 1em;
+  margin-left: 13em;
+  margin-top: 4.8em;
+  cursor: pointer;
+  font-weight: 10em;
 }
 
 /*TRANSITION___________________________*/
 
 #transition {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    right: 0;
-    border-left: 0.6em solid gold;
-    background-color: rgb(0, 48, 181);
-    z-index: 3;
-    display: none;
-    
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  right: 0;
+  border-left: 0.6em solid gold;
+  background-color: rgb(0, 48, 181);
+  z-index: 3;
+  display: none;
 }
 
-.animate{
-    transform-origin: right;
-    animation: transition_scale 1.5s ease-in;
+.animate {
+  transform-origin: right;
+  animation: transition_scale 1.5s ease-in;
 }
 
 @keyframes transition_scale {
-    0% {
-        width: 0vw;
-    }
+  0% {
+    width: 0vw;
+  }
 
-    50% {
-        width: 100vw;
-    }
-    
-    100% {
-        height: 100vh;
-    }
+  50% {
+    width: 100vw;
+  }
+
+  100% {
+    height: 100vh;
+  }
 }

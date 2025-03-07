@@ -1,113 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!---ICONS--> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!---ICONS-->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../1-Assest/AU_Logo.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!---ICONS-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../1-Assest/AU_Logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AUPC Registration</title>
-</head>
-<body>
-    <div id ="transition"></div>
-    <div id="container"> 
-        <!--!User Info-->
-        <form method="POST" id="form">
-            <div id="name">
-                <i class="fa-solid fa-address-card icons"></i>
-                <h1>Name</h1>
-                <i class="fa-solid fa-address-card icons" id="icon2"></i>
-                <input type="text" placeholder="Given Name" class="input" required ca>
-                <input type="text" placeholder="Middle Name" class="input" required>
-                <input type="text" placeholder="Last Name" class="input" required>
-                <select id="suffix" class="input" required>
-                    <option value="" disabled selected hidden>Suffix</option>
-                    <option>N/A</option>
-                    <option>JR</option>
-                    <option>II</option>
-                    <option>III</option>
-                    <option>IV</option>
-                    <option>V</option>
-                </select>
-                <select id="gender" class="input" required>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                </select>
-                <input type="date" placeholder="Birthday" class="input" required>
-                <p id="bday">(Birthday)</p>
-            </div>
-            <div id="email">
-                <i class="fa-solid fa-user icons" id="emails"></i>
-                <h1>Account</h1>
-                <i class="fa-solid fa-user icons" id="emails1"></i>
-                <input type="email" placeholder="Email" class="email" required>
-                <input type="password" placeholder="Password" class="input" id="password" required>
-            </div>
-            <i class="fa-solid fa-eye eye" id="eye" onclick="togglePassword()"></i>
-            <div id="address">
-                <i class="fa-solid fa-location-dot icons" id="emails"></i>
-                <h1>Address</h1>
-                <i class="fa-solid fa-location-dot icons" id="emails1"></i>
-                <input type="text" placeholder="Address" class="input" required>
-            </div>
-        </form>
-        <!--!Navigation-->
-        <div><h1 id="regtext">Registration</h1></div>
-        <div id="navigation">
-            <div id="information">
-                <p id="text">User Information</p>
-            </div>
-         <img src="../1-Assest/AU_Logo.png" id = "logo" alt="Arellano University Logo">
-         <i class="fa-solid fa-user icon" id="user"></i>
-         <i class="fa-solid fa-school icon" id="school"></i>
-         <i class="fa-solid fa-book icon" id="strand"></i>
-         <i class="fa-solid fa-image icon" id="picture"></i>
-         <i class="fa-solid fa-right-from-bracket" id="back"></i>
-        </div>
-        <div id="background"></div>
-        <h1 class="title">User Information</h1>
+  </head>
+
+  <body>
+    <div id="transition"></div>
+    <div id="error">
+      <i class="fa-solid fa-triangle-exclamation" id="WarningIcon"></i>
+      <h1 id="ErrorText"><b>Warning:</b> Please Fill All The Field</h1>
     </div>
-    <hr class="breakline">
+    <div id="success">
+      <i class="fa-solid fa-circle-check" id="check"></i>
+      <h1 id="SuccessText"><b>Sucess:</b> Registered Successful</h1>
+    </div>
+    <div id="container">
+      <!--!User Info-->
+      <form method="POST" id="form" action="../Database/register.php">
+        <div id="name">
+          <i class="fa-solid fa-address-card icons"></i>
+          <h1>Name</h1>
+          <i class="fa-solid fa-address-card icons" id="icon2"></i>
+          <input
+            type="text"
+            name="GivenName"
+            placeholder="Given Name"
+            class="input"
+            required
+          />
+          <input
+            type="text"
+            name="MiddleName"
+            placeholder="Middle Name"
+            class="input"
+            required
+          />
+          <input
+            type="text"
+            name="LastName"
+            placeholder="Last Name"
+            class="input"
+            required
+          />
+          <select id="suffix" name="Suffix" class="input" required>
+            <option value="" disabled selected hidden>Suffix</option>
+            <option>N/A</option>
+            <option>JR</option>
+            <option>II</option>
+            <option>III</option>
+            <option>IV</option>
+            <option>V</option>
+          </select>
+          <select id="gender" name="Gender" class="input" required>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+          <input
+            type="date"
+            name="Birthday"
+            min="2000-01-01"
+            max="2025-12-31"
+            placeholder="Birthday"
+            class="input"
+            required
+          />
+          <p id="bday">(Birthday)</p>
+        </div>
+        <div id="email">
+          <i class="fa-solid fa-user icons" id="emails"></i>
+          <h1>Account</h1>
+          <i class="fa-solid fa-user icons" id="emails1"></i>
+          <input
+            type="email"
+            name="Email"
+            placeholder="Email"
+            class="email"
+            required
+          />
+          <input
+            type="password"
+            name="Password"
+            placeholder="Password"
+            class="input"
+            id="password"
+            required
+          />
+        </div>
+        <i class="fa-solid fa-eye eye" id="eye" onclick="togglePassword()"></i>
+        <div id="address">
+          <i class="fa-solid fa-location-dot icons" id="emails"></i>
+          <h1>Address</h1>
+          <i class="fa-solid fa-location-dot icons" id="emails1"></i>
+          <input
+            type="text"
+            name="Address"
+            placeholder="Address"
+            class="input"
+            required
+          />
+        </div>
+      </form>
+      <!--!Navigation-->
+      <div id="submit">
+        <button id="button"><b>Submit</b></button>
+      </div>
+      <div>
+        <h1 id="regtext">Registration</h1>
+      </div>
+      <div id="navigation">
+        <div id="information">
+          <p id="text">User Information</p>
+        </div>
+        <img
+          src="../1-Assest/AU_Logo.png"
+          id="logo"
+          alt="Arellano University Logo"
+        />
+        <i class="fa-solid fa-user icon" id="user"></i>
+        <i class="fa-solid fa-school icon" id="school"></i>
+        <i class="fa-solid fa-book icon" id="strand"></i>
+        <i class="fa-solid fa-image icon" id="picture"></i>
+        <i class="fa-solid fa-right-from-bracket" id="back"></i>
+      </div>
+      <div id="background"></div>
+      <h1 class="title">User Information</h1>
+    </div>
+    <hr class="breakline" />
 
     <!--!Previouse School-->
     <div id="PreviousSchool">
-        <h1 class="title">Previous School</h1>
-        <form method="POST" id="form2">
-            <div id="Pschool">
-                <i class="fa-solid fa-school-flag icons" id="school1"></i></i>
-                <h1>Previous School Information</h1>
-                <i class="fa-solid fa-school-flag icons" id="school2"></i>
-                <input type="text" placeholder="School Name" class="input" required ca>
-                <input type="text" placeholder="School Address" class="input" required>
-            </div>
-            <div id="LRN">
-                <i class="fa-solid fa-book-open-reader icons" id="lrn"></i></i>
-                <h1>LRN</h1>
-                <i class="fa-solid fa-book-open-reader icons" id="lrn1"></i></i>
-                <input type="text" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="LRN" class="input" required>
-            </div>
-            <div id="Graduated">
-                <h1>Year Graduated</h1>
-                <input type="date" class="input" required>
-            </div>
-        </form>
-
+      <h1 class="title">Previous School</h1>
+      <form method="POST" id="form2" action="../Database/register.php">
+        <div id="Pschool">
+          <i class="fa-solid fa-school-flag icons" id="school1"></i>
+          <h1>Previous School Information</h1>
+          <i class="fa-solid fa-school-flag icons" id="school2"></i>
+          <input
+            type="text"
+            name="SchoolName"
+            placeholder="School Name"
+            class="input"
+            required
+          />
+          <input
+            type="text"
+            name="SchoolAddress"
+            placeholder="School Address"
+            class="input"
+            required
+          />
+        </div>
+        <div id="LRN">
+          <i class="fa-solid fa-book-open-reader icons" id="lrn"></i>
+          <h1>LRN</h1>
+          <i class="fa-solid fa-book-open-reader icons" id="lrn1"></i>
+          <input
+            type="text"
+            name="LRN"
+            maxlength="12"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+            placeholder="LRN"
+            class="input"
+            required
+          />
+        </div>
+        <div id="Graduated">
+          <h1>Year Graduated</h1>
+          <input
+            type="date"
+            name="Graduated"
+            min="2000-01-01"
+            max="2025-12-31"
+            class="input"
+            required
+          />
+        </div>
+      </form>
     </div>
-    <hr class="breakline">
+    <hr class="breakline" />
+
+    <!--!Strand-->
     <div id="Strand">
-        <h1 class="title">Choose Strand</h1>
+      <h1 class="title">Choose Strand</h1>
+      <form method="POST" id="form3" action="../Database/register.php">
+        <div id="Strand_C">
+          <i class="fa-solid fa-book icons" id="strand_book"></i>
+          <h1>Choose a Strand</h1>
+          <i class="fa-solid fa-book icons" id="strand_book2"></i>
+          <select id="chooce_strand" name="Strand" class="input" required>
+            <option value="ICT">ICT</option>
+            <option value="STEM">STEM</option>
+            <option value="HUMSS">HUMSS</option>
+            <option value="ABM">ABM</option>
+            <option value="HE">HE</option>
+          </select>
+        </div>
+        <div id="StrandInfo">
+          <div id="StrandImage">
+            <img src="../1-Assest/ICT.png" id="Spicture" />
+          </div>
+          <h2 id="h2">Information Communication Technology</h2>
+          <p id="StrandInfotext">
+            The ICT strand focuses on developing skills in computer systems,
+            programming, networking, and digital media. It prepares you for
+            careers in software development, cybersecurity, web development,
+            computer programming and IT support. This strand is ideal for those
+            interested in technology, problem-solving, and innovation in the
+            digital world.
+          </p>
+        </div>
+      </form>
     </div>
-    <hr class="breakline">
+
+    <!--!PICTURE-->
+    <hr class="breakline" />
     <div id="Picture">
-        <h1 class="title">Upload Picture</h1>
+      <h1 class="title">Upload Picture</h1>
+      <form
+        method="POST"
+        id="form4"
+        action="../Database/register.php"
+        enctype="multipart/form-data"
+      >
+        <div id="UploadPic">
+          <h1>Upload Your Picture</h1>
+          <input
+            type="file"
+            name="UserPicture"
+            class="File"
+            accept="image/*"
+            id="YourPicture"
+          />
+          <h1 class="selectfile">Select a File</h1>
+        </div>
+        <div id="UploadCard">
+          <h1>Upload Your Card</h1>
+          <input
+            type="file"
+            name="CardPicture"
+            class="File"
+            accept="image/*"
+            id="CardPicture"
+          />
+          <h1 class="selectfile">Select a File</h1>
+        </div>
+        <div id="Preview">
+          <h1 id="PUPicture">Your Picture</h1>
+          <span id="line"></span>
+          <h1 id="PCPicture">Card Picture</h1>
+          <span class="PreviewPic">
+            <img
+              src="../1-Assest/PlaceHolder.png"
+              class="Spicture"
+              id="PYourPicture"
+            />
+          </span>
+          <span class="PreviewPic2">
+            <img
+              src="../1-Assest/PlaceHolder.png"
+              class="Spicture"
+              id="PCardPicture"
+          /></span>
+        </div>
+      </form>
     </div>
-   
-
-
-
-
-</body>
- <script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
