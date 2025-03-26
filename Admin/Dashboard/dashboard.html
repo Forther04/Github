@@ -1,6 +1,4 @@
-<article?php session_start(); if (!isset($_SESSION["Admin"]) ||
-$_SESSION["Admin"] != 1) { header("Location: /Admin/Dashboard/login.php");
-exit(); } $user = $_SESSION["user"]; ?>
+<article?php session_start(); if (!isset($_SESSION["Admin"]) || $_SESSION["Admin"] != 1) { header("Location: /Admin/Dashboard/login.php"); exit(); } $user = $_SESSION["user"]; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +11,7 @@ exit(); } $user = $_SESSION["user"]; ?>
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="../../1-Assest/AU_Logo.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
@@ -31,21 +26,15 @@ exit(); } $user = $_SESSION["user"]; ?>
     </div>
     <!--!NAVIGATION-->
     <div id="NavigationBar">
-      <img
-        src="../../1-Assest/AU_Logo.png"
-        id="logo"
-        alt="Arellano University Logo"
-      />
+      <img src="../../1-Assest/AU_Logo.png" id="logo" alt="Arellano University Logo" />
       <div id="icon">
         <a>
           <i class="fa-solid fa-grip icons"></i>
         </a>
         <a href="../Chart/chart.html">
-          <i class="fa-solid fa-chart-line icons"> </i>
+          <i class="fa-solid fa-chart-line icons"></i>
         </a>
-        <a href="../News/news.html"
-          ><i class="fa-solid fa-newspaper icons"></i
-        ></a>
+        <a href="../News/news.html"><i class="fa-solid fa-newspaper icons"></i></a>
       </div>
       <button id="logout">
         <i class="fa-solid fa-right-from-bracket log"></i>
@@ -54,7 +43,7 @@ exit(); } $user = $_SESSION["user"]; ?>
     <h1 class="title">Dashboard</h1>
     <!--!Content-->
     <div class="ContentBackground">
-      <table border="1" id="user-table">
+      <table id="1" id="user-table">
         <thead>
           <tr>
             <th>Last Name</th>
@@ -72,9 +61,7 @@ exit(); } $user = $_SESSION["user"]; ?>
 
     <div id="user-details" class="hidden">
       <div class="modal-content">
-        <a href="" target="_blank" id="userlink"
-          ><img src="" id="UserPicture"
-        /></a>
+        <a href="" target="_blank" id="userlink"><img src="" id="UserPicture" /></a>
         <a href="" target="_blank" id="cardlink">
           <img src="" id="CardPicture" />
         </a>
@@ -84,24 +71,44 @@ exit(); } $user = $_SESSION["user"]; ?>
         <h2 class="text1">User Details</h2>
         <hr />
         <p class="text">
-          <strong>Full Name:</strong> <span id="full-name"></span>
-        </p>
-        <p class="text"><strong>Email:</strong> <span id="email"></span></p>
-        <p class="text"><strong>Gender:</strong> <span id="gender"></span></p>
-        <p class="text">
-          <strong>Birthday:</strong> <span id="birthday"></span>
-        </p>
-        <p class="text"><strong>Address:</strong> <span id="address"></span></p>
-        <p class="text"><strong>Strand:</strong> <span id="strand"></span></p>
-        <p class="text"><strong>LRN:</strong> <span id="lrn"></span></p>
-        <p class="text">
-          <strong>Year Graduated:</strong> <span id="graduated"></span>
+          <strong>Full Name:</strong>
+          <span id="full-name"></span>
         </p>
         <p class="text">
-          <strong>Previous School Name:</strong> <span id="PSname"></span>
+          <strong>Email:</strong>
+          <span id="email"></span>
         </p>
         <p class="text">
-          <strong>Previous School Address:</strong> <span id="PSaddress"></span>
+          <strong>Gender:</strong>
+          <span id="gender"></span>
+        </p>
+        <p class="text">
+          <strong>Birthday:</strong>
+          <span id="birthday"></span>
+        </p>
+        <p class="text">
+          <strong>Address:</strong>
+          <span id="address"></span>
+        </p>
+        <p class="text">
+          <strong>Strand:</strong>
+          <span id="strand"></span>
+        </p>
+        <p class="text">
+          <strong>LRN:</strong>
+          <span id="lrn"></span>
+        </p>
+        <p class="text">
+          <strong>Year Graduated:</strong>
+          <span id="graduated"></span>
+        </p>
+        <p class="text">
+          <strong>Previous School Name:</strong>
+          <span id="PSname"></span>
+        </p>
+        <p class="text">
+          <strong>Previous School Address:</strong>
+          <span id="PSaddress"></span>
         </p>
       </div>
     </div>
@@ -130,12 +137,7 @@ exit(); } $user = $_SESSION["user"]; ?>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
       </select>
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search by last name..."
-        autocomplete="off"
-      />
+      <input type="text" id="searchInput" placeholder="Search by last name..." autocomplete="off" />
       <button id="clear">Clear</button>
       <div id="filterbackgroundarrow">
         <i class="fa-solid fa-caret-up" id="up"></i>

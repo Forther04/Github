@@ -62,6 +62,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.getElementById("table-body");
     tableBody.innerHTML = ""; // Clear table
 
+    if (users.length === 0) {
+      // Instead of adding a row, we add a separate message
+      tableBody.innerHTML = `
+        <tr class="no-user-row">
+          <td colspan="5" style="text-align: center; font-weight: bold;">No user found</td>
+        </tr>`;
+      return;
+    }
+
     users.forEach((user) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
@@ -72,8 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <td>${user.Strand || "N/A"}</td>
       `;
 
-      // Attach click event to open user details
-      tr.addEventListener("click", () => openUserDetails(user.userId));
+      // Add click event listener to open user details
+      tr.addEventListener("click", function () {
+        openUserDetails(user.userId);
+      });
 
       tableBody.appendChild(tr);
     });
@@ -102,6 +113,7 @@ function openUserDetails(userId) {
 
       // Update modal content with fetched data
       document.getElementById("full-name").textContent = `${data.GivenName} ${data.MI ? data.MI + "." : ""} ${data.LastName} ${data.Suffix && data.Suffix !== "N/A" ? data.Suffix : ""}`;
+
       document.getElementById("email").textContent = data.Email;
       document.getElementById("gender").textContent = data.Gender;
       document.getElementById("birthday").textContent = data.Birthday;
