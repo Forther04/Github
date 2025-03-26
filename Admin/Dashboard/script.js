@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("searchInput").addEventListener("input", applyFiltersAndSearch);
 
   fetchUsers(); // Initial fetch
-  setInterval(fetchUsers, 5000); // Refresh every 5 seconds
+  setInterval(fetchUsers, 1000);
 });
 
 // Function to fetch and display user details

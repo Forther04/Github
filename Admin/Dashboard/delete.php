@@ -39,13 +39,19 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $userId);
 
 if ($stmt->execute()) {
-    // If user deletion is successful, delete the images
+    // Find the highest remaining userId
+    $result = $conn->query("SELECT MAX(userId) AS max_id FROM user_info");
+    $row = $result->fetch_assoc();
+    $nextId = $row['max_id'] ? $row['max_id'] + 1 : 1; // If table is empty, reset to 1
+
+    // Reset auto-increment to next available ID
+    $conn->query("ALTER TABLE user_info AUTO_INCREMENT = $nextId");
+
+    // Delete images if they exist
     if ($userPictures) {
-        // Define file paths
         $userPicPath = "../../Database/" . $userPictures['User_Picture'];
         $cardPicPath = "../../Database/" . $userPictures['Card_Picture'];
 
-        // Check if files exist and delete them
         if (!empty($userPictures['User_Picture']) && file_exists($userPicPath)) {
             unlink($userPicPath);
         }
