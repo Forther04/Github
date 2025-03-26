@@ -1,16 +1,13 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$database = "registration";
+include("db.php"); 
 
-//Connect to the database
-$conn = new mysqli($host, $user, $pass, $database);
-// Check connection
-if ($conn->connect_error) {
-    die("Failed to Connect: " . $conn->connect_error);
-}
+// Debugging: Check if form data is received
+echo "<pre>";
+var_dump($_POST);
+echo "</pre>";
 
 // Get text input values
 $GivenName = $_POST['GivenName'] ?? "";
@@ -31,15 +28,19 @@ $Strand = $_POST['Strand'] ?? "";
 // Hash password
 $Hashed_password = password_hash($Password, PASSWORD_DEFAULT);
 
-// Upload directory
-$target_dir = "http://localhost/projects/AUPC_Registration%20Version%202/Github/Database/Components/"; // Folder to save images
+// Debugging: Check hashed password
+echo "Hashed Password: " . $Hashed_password . "<br>";
+
+// Upload directory 
+$target_dir = "Components/"; // Folder to save images
+
 if (!file_exists($target_dir)) {
-    mkdir($target_dir, 0777, true); // Create directory if it doesn't exist
+    mkdir($target_dir, 0777, true);
 }
 
 // File upload handling
-$image_path = ""; // Default empty value
-$card_picture = ""; // Default empty value
+$image_path = "";
+$card_picture = "";
 
 if (!empty($_FILES["UserPicture"]["name"])) {
     $file_name = uniqid() . "_" . basename($_FILES["UserPicture"]["name"]);
@@ -50,7 +51,7 @@ if (!empty($_FILES["UserPicture"]["name"])) {
 
     if (in_array($file_type, $allowed_types) && $_FILES["UserPicture"]["size"] < 10000000) {
         if (move_uploaded_file($_FILES["UserPicture"]["tmp_name"], $target_file)) {
-            $image_path = $target_file; // Store file path
+            $image_path = $target_file;
         } else {
             die("Error uploading UserPicture.");
         }
@@ -68,7 +69,7 @@ if (!empty($_FILES["CardPicture"]["name"])) {
 
     if (in_array($file_type, $allowed_types) && $_FILES["CardPicture"]["size"] < 10000000) {
         if (move_uploaded_file($_FILES["CardPicture"]["tmp_name"], $target_file)) {
-            $card_picture = $target_file; // Store file path
+            $card_picture = $target_file;
         } else {
             die("Error uploading CardPicture.");
         }
@@ -104,11 +105,11 @@ $stmt->bind_param("ssssssssssssssss",
     $LRN, 
     $Graduated, 
     $Strand, 
-    $image_path, // Corrected file path variable
-    $card_picture // Corrected file path variable
+    $image_path, 
+    $card_picture 
 );
 
-// Execute the query
+// Execute the query and check for errors
 if ($stmt->execute()) {
     echo "Registration successful!";
 } else {
@@ -118,4 +119,5 @@ if ($stmt->execute()) {
 // Close statement and connection
 $stmt->close();
 $conn->close();
+
 ?>

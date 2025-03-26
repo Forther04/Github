@@ -1,20 +1,12 @@
 <?php
 session_start();
-$host = "localhost";
-$user = "root";
-$pass = "";
-$database = "registration";
-
-$conn = new mysqli($host, $user, $pass, $database);
-if ($conn->connect_error) {
-    die("Failed to Connect: " . $conn->connect_error);
-}
+include("db.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
 
-    $sql = "SELECT `Admin`, GivenName, MI, LastName, Suffix, Gender, Birthday, Email, Password, 
+    $sql = "SELECT `Admin`, GivenName, MI, LastName, Suffix, Gender, Birthday, Password, 
                    Address, Previous_school, Previous_school_address, LRN, Graduated, Strand, 
                    User_Picture, Card_Picture
             FROM user_info WHERE Email = ?";
@@ -25,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($stmt->num_rows > 0) {
         // Bind results to variables
-        $stmt->bind_result($Admin, $GivenName, $MI, $LastName, $Suffix, $Gender, $Birthday, $Email, $hashed_password, 
+        $stmt->bind_result($Admin, $GivenName, $MI, $LastName, $Suffix, $Gender, $Birthday, $hashed_password, 
                            $Address, $Previous_school, $Previous_school_address, $LRN, $Graduated, $Strand, 
                            $User_Picture, $Card_Picture);
         $stmt->fetch();
@@ -39,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "Suffix" => $Suffix,
                 "Gender" => $Gender,
                 "Birthday" => $Birthday,
-                "Email" => $Email,
                 "Address" => $Address,
                 "Previous_school" => $Previous_school,
                 "Previous_school_address" => $Previous_school_address,
@@ -51,19 +42,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ];
             $_SESSION["Admin"] = $Admin;
 
-            //1 = Admin, 0 = User
-            if ($Admin == 1) {
-                header("Location: ../Admin/Dashboard/dashboard.html"); // ✅ Redirect admin users
-            } else {
-                echo "User";
-                //header("Location: user_dashboard.php"); // ✅ Redirect normal users
-            }
+            // Redirect based on role
+            $redirectPage = ($Admin == 1) ? "../Admin/Dashboard/dashboard.html" : "../Main/Dashboard/index.php";
+            header("Location: $redirectPage");
             exit();
         } else {
-            echo "Invalid password.";
+            echo "<script>alert('Invalid password.'); window.history.back();</script>";
+            exit();
         }
     } else {
-        echo "No account found with this email.";
+        echo "<script>alert('No account found with this email.'); window.history.back();</script>";
+        exit();
     }
 
     $stmt->close();

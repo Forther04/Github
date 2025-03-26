@@ -2,6 +2,6 @@
 session_start();
 session_unset(); // Remove all session variables
 session_destroy(); // Destroy the session
-header("Location: ../FrontPage/frontpage.html");
+header("Location: ../index.html");
 exit();
 ?>

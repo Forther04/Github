@@ -121,3 +121,43 @@ html body {
   border-radius: 1em;
   border: 5px gold solid;
 }
+
+.ContentBackground {
+  position: absolute;
+  display: flex;
+  background-color: white;
+  width: 63em;
+  height: 25em;
+  left: 11em;
+  top: 8em;
+  border: 5px rgb(28, 28, 28) solid;
+  border-radius: 1.5em;
+  animation: on_screen 0.8s ease-in;
+  overflow-y: auto;
+  animation: intro 1s ease;
+}
+
+@keyframes intro {
+  0% {
+    opacity: 0%;
+    top: 15em;
+  }
+  100% {
+    opacity: 100%;
+    top: 8em;
+  }
+}
+
+#pieChart {
+  margin-top: 3em;
+  width: 20em !important;
+  height: 20em !important;
+  margin-left: 5em;
+}
+
+#barChart {
+  margin-top: 3em;
+  margin-left: 10em;
+  width: 25em !important;
+  height: 20em !important;
+}

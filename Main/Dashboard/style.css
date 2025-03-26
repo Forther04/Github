@@ -140,7 +140,7 @@ html body {
   overflow-y: auto;
 }
 
-.progress {
+.username {
   position: absolute;
   background-color: beige;
   left: 46em;
@@ -152,6 +152,37 @@ html body {
   justify-content: center;
 }
 
+#name {
+  position: relative;
+  background-color: rgb(4, 95, 165);
+  text-align: center;
+  border: 2px rgb(30, 30, 30) solid;
+  margin: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+}
+
+#useractualname {
+  text-align: center;
+}
+.info {
+  background-color: rgb(4, 95, 165);
+  color: white;
+  position: relative;
+  margin: 0px;
+  border: 2px rgb(30, 30, 30) solid;
+  text-align: center;
+}
+
+.data {
+  text-align: center;
+
+  font-size: 1.5em;
+}
+
+/*------Pictuers--------*/
+
 .images {
   position: absolute;
   background-color: beige;
@@ -162,12 +193,29 @@ html body {
   border: 5px rgb(30, 30, 30) solid;
   border-radius: 1em;
   justify-content: center;
+  overflow: hidden;
 }
 
-#name {
-  position: relative;
+.picture {
+  width: 45%;
+  height: 95%;
+  border: 1px black solid;
+  cursor: pointer;
 }
-.info {
-  position: relative;
-  margin: 3.362px;
+
+.picture:hover {
+  width: 45%;
+  height: 95%;
+  border: 2px green solid;
+  cursor: pointer;
+}
+
+#user_pic {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#card_pic {
+  margin-top: 5px;
+  margin-left: 0px;
 }

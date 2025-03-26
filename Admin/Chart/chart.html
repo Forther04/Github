@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!---ICONS-->
+    <!-- ICONS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -18,20 +18,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AUPC Registration</title>
+
+    <!-- Chart.js & Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   </head>
   <body>
     <div id="ImageBackground"></div>
     <div>
       <h1 id="NavText">Admin</h1>
     </div>
-    <!--!NAVIGATION-->
+
+    <!-- NAVIGATION -->
     <div id="NavigationBar">
       <img
         src="../../1-Assest/AU_Logo.png"
         id="logo"
         alt="Arellano University Logo"
       />
-
       <div id="icon">
         <a href="../Dashboard/dashboard.html"
           ><i class="fa-solid fa-grip icons"></i
@@ -45,7 +49,150 @@
         <i class="fa-solid fa-right-from-bracket log"></i>
       </button>
     </div>
+
     <h1 class="title">Chart</h1>
+
+    <!-- CONTENT -->
+    <div class="ContentBackground">
+      <canvas id="pieChart"></canvas>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <script>
+      // Fetch strand data from the server
+      fetch("../../Database/strand.php")
+        .then((response) => response.json())
+        .then((data) => {
+          // Define all possible strands
+          const allStrands = {
+            STEM: 0,
+            ABM: 0,
+            HUMMS: 0,
+            ICT: 0,
+            HE: 0,
+          };
+
+          // Populate strand counts from database
+          data.forEach((item) => {
+            if (allStrands.hasOwnProperty(item.Strand)) {
+              allStrands[item.Strand] = item.count;
+            }
+          });
+
+          // Extract labels and counts
+          const strands = Object.keys(allStrands);
+          const counts = Object.values(allStrands);
+
+          // Register plugins
+          Chart.register(ChartDataLabels);
+
+          // Check if all values are zero
+          const allZero = counts.every((count) => count === 0);
+
+          // If all values are zero, display a placeholder message
+          if (allZero) {
+            document.querySelector(".ContentBackground").innerHTML = `
+              <h2 style="text-align:center;">No data available for strand distribution.</h2>
+            `;
+            return;
+          }
+
+          // Pie Chart
+          const ctx1 = document.getElementById("pieChart").getContext("2d");
+          new Chart(ctx1, {
+            type: "pie",
+            data: {
+              labels: strands,
+              datasets: [
+                {
+                  label: "Strand Distribution",
+                  data: counts,
+                  backgroundColor: [
+                    "red",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "purple",
+                    "orange",
+                  ],
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: "bottom",
+                },
+                datalabels: {
+                  color: "white",
+                  font: {
+                    size: 16,
+                    weight: "bold",
+                  },
+                  formatter: (value) => (value === 0 ? "" : value), // Hide labels for 0 values
+                },
+              },
+            },
+          });
+
+          // Bar Chart
+          const ctx2 = document.getElementById("barChart").getContext("2d");
+          new Chart(ctx2, {
+            type: "bar",
+            data: {
+              labels: strands,
+              datasets: [
+                {
+                  label: "Strand Enrollment",
+                  data: counts,
+                  backgroundColor: [
+                    "red",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "purple",
+                    "orange",
+                  ],
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    precision: 0, // No decimal values
+                    stepSize: 1, // Ensures whole numbers
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: false,
+                },
+                datalabels: {
+                  anchor: "end",
+                  align: "top",
+                  color: "black",
+                  font: {
+                    size: 14,
+                    weight: "bold",
+                  },
+                  formatter: (value) => (value === 0 ? "" : value), // Hide labels for 0 values
+                },
+              },
+            },
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          document.querySelector(".ContentBackground").innerHTML = `
+            <h2 style="text-align:center;color:red;">Failed to load chart data.</h2>
+          `;
+        });
+    </script>
   </body>
   <script src="script.js"></script>
 </html>

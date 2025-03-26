@@ -1,13 +1,5 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$database = "registration";
-
-$conn = new mysqli($host, $user, $pass, $database);
-if ($conn->connect_error) {
-    die("Failed to connect: " . $conn->connect_error);
-}
+include("db.php"); 
 
 // Fetch all users
 $sql = "SELECT userId, `Admin`, GivenName, MI, LastName, Suffix, Gender, Birthday, Email, Password, 

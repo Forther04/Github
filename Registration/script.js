@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   back.addEventListener("click", function () {
-    window.location.href = "../FrontPage/frontpage.html";
+    window.location.href = "../index.html";
   });
 
   user.addEventListener("click", function () {
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .then((data) => console.log("Server Response:", data)) // Log response
           .then((data) => {
             setTimeout(() => {
-              window.location.href = "../FrontPage/frontpage.html";
+              window.location.href = "../index.html";
             }, 500);
           })
           .catch((error) => console.error("Error:", error));

@@ -22,7 +22,7 @@ function singup() {
   transition.addEventListener(
     "animationend",
     function () {
-      window.location.href = "../Registration/registration.html"; // Change to your target page
+      window.location.href = "Registration/registration.html"; // Change to your target page
     },
     { once: true }
   ); // Ensure it only triggers once
@@ -33,7 +33,7 @@ document.getElementById("submit").addEventListener("submit", function (event) {
 
   let formData = new FormData(this);
 
-  fetch("../Database/login.php", {
+  fetch("Database/login.php", {
     method: "POST",
     body: formData,
   })

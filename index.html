@@ -17,12 +17,9 @@
       referrerpolicy="no-referrer"
     />
     <!---ICONS-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="../1-Assest/AU_Logo.png" />
+    <link rel="icon" href="1-Assest/AU_Logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AUPC Registration</title>
@@ -37,43 +34,20 @@
         <div id="border"></div>
         <!--!Input-->
         <div id="input">
-          <img src="../1-Assest/AU_Logo.png" id="logo" />
+          <img src="1-Assest/AU_Logo.png" id="logo" />
           <h1 id="portal">AUPC Registration Portal</h1>
-          <img src="../1-Assest/AU_Logo.png" id="logo2" />
+          <img src="1-Assest/AU_Logo.png" id="logo2" />
           <h1 id="login">LOGIN</h1>
-          <form
-            method="POST"
-            action="../Database/login.php"
-            id="form"
-            autocomplete="off"
-          >
+          <form method="POST" action="Database/login.php" id="form" autocomplete="off">
             <div id="email">
               <i class="fa-regular fa-envelope icon"></i>
-              <input
-                type="email"
-                placeholder="Email"
-                class="input"
-                id="Email"
-                required
-                name="Email"
-              />
+              <input type="email" placeholder="Email" class="input" id="Email" required name="Email" />
             </div>
             <div id="email">
               <i class="fa-solid fa-lock icon"></i>
-              <input
-                type="password"
-                placeholder="Password"
-                class="input"
-                id="password"
-                name="Password"
-                required
-              />
+              <input type="password" placeholder="Password" class="input" id="password" name="Password" required />
             </div>
-            <i
-              class="fa-solid fa-eye eye"
-              id="eye"
-              onclick="togglePassword()"
-            ></i>
+            <i class="fa-solid fa-eye eye" id="eye" onclick="togglePassword()"></i>
             <input type="submit" value="Login" id="submit" />
           </form>
           <div>

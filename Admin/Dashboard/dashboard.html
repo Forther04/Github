@@ -19,6 +19,7 @@ exit(); } $user = $_SESSION["user"]; ?>
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="../../1-Assest/AU_Logo.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AUPC Registration</title>
@@ -26,7 +27,7 @@ exit(); } $user = $_SESSION["user"]; ?>
   <body>
     <div id="ImageBackground"></div>
     <div>
-      <h1 id="NavText">Admin</h1>
+      <h1 id="NavText" title="Pogi ni Clark">Admin</h1>
     </div>
     <!--!NAVIGATION-->
     <div id="NavigationBar">
@@ -42,7 +43,7 @@ exit(); } $user = $_SESSION["user"]; ?>
         <a href="../Chart/chart.html">
           <i class="fa-solid fa-chart-line icons"> </i>
         </a>
-        <a href="../Chart/chart.html"
+        <a href="../News/news.html"
           ><i class="fa-solid fa-newspaper icons"></i
         ></a>
       </div>
@@ -71,10 +72,16 @@ exit(); } $user = $_SESSION["user"]; ?>
 
     <div id="user-details" class="hidden">
       <div class="modal-content">
-        <img src="" class="PICTURE" />
-        <img src="" class="PICTURE1" />
+        <a href="" target="_blank" id="userlink"
+          ><img src="" id="UserPicture"
+        /></a>
+        <a href="" target="_blank" id="cardlink">
+          <img src="" id="CardPicture" />
+        </a>
         <span class="close-btn text" onclick="closeDetails()">&times;</span>
-        <h2 class="text1">User Details:</h2>
+        <button id="changepassword">Change User Password</button>
+        <button id="delete">Delete User</button>
+        <h2 class="text1">User Details</h2>
         <hr />
         <p class="text">
           <strong>Full Name:</strong> <span id="full-name"></span>
@@ -96,6 +103,45 @@ exit(); } $user = $_SESSION["user"]; ?>
         <p class="text">
           <strong>Previous School Address:</strong> <span id="PSaddress"></span>
         </p>
+      </div>
+    </div>
+    <div id="PassworDiv">
+      <h1 id="PasswordText">CHANGE USER PASSWORD</h1>
+      <i class="fa-solid fa-circle-xmark back" id="PasswordBack"></i>
+      <form>
+        <input type="password" id="Firstpassword" placeholder="Password" />
+        <input type="password" id="confirm" placeholder="Confirm Password" />
+        <button id="submitbutton">Change</button>
+      </form>
+      <button id="showbutton">Show</button>
+    </div>
+    <!--!FILTER-->
+    <div id="filterbackground">
+      <select id="strandFilter">
+        <option value="all" hidden>Strand</option>
+        <option value="all">ALL</option>
+        <option value="STEM">STEM</option>
+        <option value="ABM">ABM</option>
+        <option value="HUMSS">HUMSS</option>
+        <option value="ICT">ICT</option>
+        <option value="HE">HE</option>
+      </select>
+      <select id="sortOrder">
+        <option value="asc">A-Z</option>
+        <option value="desc">Z-A</option>
+      </select>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search by last name..."
+        autocomplete="off"
+      />
+      <button id="clear">Clear</button>
+      <div id="filterbackgroundarrow">
+        <i class="fa-solid fa-caret-up" id="up"></i>
+      </div>
+      <div id="filterbackgroundarrowdown">
+        <i class="fa-solid fa-caret-down" id="down"></i>
       </div>
     </div>
   </body>
