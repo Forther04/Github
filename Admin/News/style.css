@@ -2,7 +2,7 @@ html body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 
@@ -11,6 +11,8 @@ html body {
   height: 100vh;
   width: 100vw;
   background-image: url("../../1-Assest/Backgroudn\ 2.jpg");
+  opacity: 90%;
+  filter: blur(0.9px);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: -1;
@@ -120,4 +122,207 @@ html body {
   padding-right: 20px;
   border-radius: 1em;
   border: 5px gold solid;
+}
+
+/* Start here*/
+#whitebg {
+  position: absolute;
+  display: flex;
+  background-color: beige;
+  left: 12em;
+  top: 7em;
+  width: 33.5em;
+  height: 28em;
+  border: 5px rgb(30, 30, 30) solid;
+  border-radius: 1em;
+  justify-content: center;
+  overflow: hidden;
+  animation: show 1s ease;
+}
+
+#image {
+  position: absolute;
+  display: flex;
+  background-color: rgb(224, 220, 208);
+  width: 80%;
+  height: 50%;
+  left: 10%;
+  margin-top: 10px;
+  border-radius: 1em;
+  box-shadow: 1px 1px 5px black;
+  justify-content: center;
+  align-items: center;
+  color: green;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#plus {
+  font-size: 0.000001em;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+#imagepic {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  display: block;
+}
+
+#titletext {
+  position: absolute;
+  width: 52%;
+  height: 10%;
+  bottom: 35%;
+  left: 10%;
+}
+
+#createnews {
+  position: absolute;
+  width: 25%;
+  height: 11%;
+  bottom: 35%;
+  right: 10%;
+  cursor: pointer;
+  background-color: gold;
+  border-radius: 5px;
+  border: 2px black solid;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#createnews:hover {
+  background-color: green;
+  color: white;
+}
+
+#description {
+  position: absolute;
+  min-width: 80%;
+  min-height: 30%;
+  width: 80%;
+  height: 30%;
+  bottom: 1%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 16px;
+  max-width: 80%;
+  max-height: 80%;
+  resize: both;
+  z-index: 10;
+  left: 10%;
+}
+
+#blackbg {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(48, 48, 48);
+  right: 8em;
+  top: 7em;
+  width: 25em;
+  height: 26.5em;
+  border: 5px gold solid;
+  border-radius: 1em;
+  justify-content: flex-start;
+  padding-top: 20px;
+  gap: 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  animation: show 1s ease;
+}
+
+#blackbg::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.fetchnews {
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+  height: 60%;
+  background-color: rgb(35, 36, 109);
+  border-radius: 1em 0em 1em 1em;
+  flex-shrink: 0;
+  border: 2px black solid;
+}
+
+.fetchnews:first-child {
+  margin-top: 5%;
+}
+
+.imagenews {
+  width: 90%;
+  height: 50%;
+  margin-left: 5%;
+  margin-top: 3%;
+  border-radius: 1em;
+  border: 2px black solid;
+  margin-bottom: 0;
+}
+
+.newstitle {
+  margin-left: 5% !important;
+  color: white;
+  background-color: orange;
+  width: 90%;
+  text-align: center;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.newsdescription {
+  color: white;
+  margin: 5px auto;
+  width: 90%;
+  height: 30%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+.newsdescription p {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.delete {
+  all: unset;
+  position: absolute;
+  width: 20%;
+  height: 10%;
+  background-color: rgb(198, 37, 37);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  right: -2px;
+  top: -31px;
+  border-radius: 1em 1em 0em 1em;
+  z-index: 1;
+  cursor: pointer;
+  border: 2px black solid;
+}
+
+.delete:hover {
+  background-color: rgb(230, 15, 15);
+}
+
+@keyframes show {
+  0% {
+    opacity: 0%;
+    top: 9em;
+  }
+
+  100% {
+    opacity: 100%;
+    top: 7em;
+  }
 }

@@ -11,6 +11,7 @@ html body {
   height: 100vh;
   width: 100vw;
   background-image: url("../../1-Assest/Backgroudn\ 2.jpg");
+  filter: blur(0.9px);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: -1;
@@ -138,6 +139,27 @@ html body {
   flex-direction: column;
   font-family: inherit;
   overflow-y: auto;
+}
+
+.white-background::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Scrollbar track */
+.white-background::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 20em;
+}
+
+/* Scrollbar handle */
+.white-background::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Scrollbar handle on hover */
+.white-background::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .username {

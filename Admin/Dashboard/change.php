@@ -1,11 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-$host = "sql108.infinityfree.com";
-$user = "if0_38406536";
-$pass = "4IWh5549dw6mWNz";
-$database = "if0_38406536_registration";
-
+include("../../Database/db.php");
 
 $conn = new mysqli($host, $user, $pass, $database);
 if ($conn->connect_error) {

@@ -1,8 +1,8 @@
 <?php 
-// $host = "sql108.infinityfree.com";
-// $user = "if0_38406536";
-// $pass = "4IWh5549dw6mWNz";
-// $database = "if0_38406536_registration";
+// $host = "sql307.infinityfree.com";
+// $user = "if0_38621174";
+// $pass = "WoyPLdJxOUPcRN";
+// $database = "if0_38621174_registration";
 
 
 $host = "localhost";

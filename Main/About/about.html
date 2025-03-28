@@ -26,19 +26,53 @@
     <div id="NavigationBar">
       <img src="../../1-Assest/AU_Logo.png" id="logo" alt="Arellano University Logo" />
       <div id="icon">
-        <a href="../Dashboard/index.php">
+        <a href="../Dashboard/index.php" title="dashboard">
           <i class="fa-solid fa-user icons"></i>
         </a>
         <a>
           <i class="fa-solid fa-info-circle icons"></i>
         </a>
-        <a href="../News/news.html"><i class="fa-solid fa-newspaper icons"></i></a>
+        <a href="../News/news.html" title="news"><i class="fa-solid fa-newspaper icons"></i></a>
       </div>
-      <button id="logout">
+      <button id="logout" title="logout">
         <i class="fa-solid fa-right-from-bracket log"></i>
       </button>
     </div>
     <h1 class="title">About Us</h1>
+    <!--!START_HERE-->
+    <div class="white-background">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide">
+            <img src="../../1-Assest/Background 1.jpg" title="AUPC" id="img" />
+            <p>The Arellano University School of Education is the academic unit of Arellano University that is devoted to scholarship in the field of education. The school conducts review classes for Licensure Examination for Teachers.</p>
+          </div>
+          <div class="slide">
+            <img src="../../1-Assest/founder.jpg" title="AUPC" id="img1" />
+            <p id="founder">
+              "Our school was originally conceived as an institution dedicated to the pursuit of knowledge, no matter where the trail may lead, no matter how unpopular the result. Thus, reason and science, not tradition and dogma, have always shaped
+              our policies, and thus we have channeled our meager efforts without deviation or break"
+              <br />
+              <span class="span">Florentino P. Cayco Sr.</span>
+            </p>
+          </div>
+          <div class="slide">
+            <img src="../../1-Assest/Building.png" title="AUPC" id="img2" />
+            <img src="../../1-Assest/Location.png" title="AUPC" id="img3" />
+            <p id="ourlocation">
+              <span class="span">Where can you find us?</span>
+              <br />
+              53 New Panaderos, Mandaluyong, 1550 Metro Manila
+            </p>
+            <button id="maps" type="button">Our Location</button>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="buttons" id="prev"><</button>
+        <button class="buttons" id="next">></button>
+      </div>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>

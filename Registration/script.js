@@ -47,9 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     user.style.color = "white";
     strand.style.color = "white";
     picture.style.color = "white";
-    document
-      .getElementById("PreviousSchool")
-      .scrollIntoView({ behavior: "smooth" });
+    document.getElementById("PreviousSchool").scrollIntoView({ behavior: "smooth" });
   });
 
   school.addEventListener("mouseenter", function () {
@@ -122,9 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let activeIcon = null;
 
         entries.forEach((entry) => {
-          console.log(
-            `Checking section: ${entry.target.id}, isIntersecting: ${entry.isIntersecting}, ratio: ${entry.intersectionRatio}`
-          );
+          console.log(`Checking section: ${entry.target.id}, isIntersecting: ${entry.isIntersecting}, ratio: ${entry.intersectionRatio}`);
 
           const iconId = sections[entry.target.id];
           if (iconId && entry.isIntersecting) {
@@ -212,35 +208,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  document
-    .getElementById("YourPicture")
-    .addEventListener("change", function (event) {
-      const file = event.target.files[0];
+  document.getElementById("YourPicture").addEventListener("change", function (event) {
+    const file = event.target.files[0];
 
-      if (file) {
-        const reader = new FileReader();
+    if (file) {
+      const reader = new FileReader();
 
-        reader.onload = function (e) {
-          document.getElementById("PYourPicture").src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
+      reader.onload = function (e) {
+        document.getElementById("PYourPicture").src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 
-  document
-    .getElementById("CardPicture")
-    .addEventListener("change", function (event) {
-      const file = event.target.files[0];
+  document.getElementById("CardPicture").addEventListener("change", function (event) {
+    const file = event.target.files[0];
 
-      if (file) {
-        const reader = new FileReader();
+    if (file) {
+      const reader = new FileReader();
 
-        reader.onload = function (e) {
-          document.getElementById("PCardPicture").src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
+      reader.onload = function (e) {
+        document.getElementById("PCardPicture").src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 
   //_________________________________//
   document.getElementById("button").addEventListener("click", function () {

@@ -9,10 +9,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="../1-Assest/AU_Logo.png" />
     <meta charset="UTF-8" />
@@ -26,26 +23,36 @@
     </div>
     <!--!NAVIGATION-->
     <div id="NavigationBar">
-      <img
-        src="../../1-Assest/AU_Logo.png"
-        id="logo"
-        alt="Arellano University Logo"
-      />
+      <img src="../../1-Assest/AU_Logo.png" id="logo" alt="Arellano University Logo" />
 
       <div id="icon">
-        <a href="../Dashboard/dashboard.html">
+        <a href="../Dashboard/dashboard.html" title="dashboard">
           <i class="fa-solid fa-grip icons"></i>
         </a>
-        <a href="../Chart/chart.html">
-          <i class="fa-solid fa-chart-line icons"> </i>
+        <a href="../Chart/chart.html" title="chart">
+          <i class="fa-solid fa-chart-line icons"></i>
         </a>
         <a><i class="fa-solid fa-newspaper icons"></i></a>
       </div>
-      <button id="logout">
+      <button id="logout" title="logout">
         <i class="fa-solid fa-right-from-bracket log"></i>
       </button>
     </div>
+    <!--!MainContent-->
     <h1 class="title">News</h1>
+    <div id="whitebg">
+      <form id="ImageForm" method="POST" name="Form1" action="../../Database/news_upload.php" enctype="multipart/form-data">
+        <div id="image">
+          <input type="file" id="fileInput" name="fileInput" hidden />
+          <label for="fileInput" id="plus">+</label>
+          <img src="../../1-Assest/PlaceHolder.png" id="imagepic" alt="Placeholder" />
+        </div>
+        <input type="text" id="titletext" name="titletext" placeholder="Title" />
+        <textarea id="description" name="description" placeholder="Description"></textarea>
+        <button type="submit" id="createnews" name="createnews">Create</button>
+      </form>
+    </div>
+    <div id="blackbg"></div>
   </body>
   <script src="script.js"></script>
 </html>

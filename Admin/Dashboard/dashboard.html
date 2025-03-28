@@ -1,8 +1,8 @@
-<article?php session_start(); if (!isset($_SESSION["Admin"]) || $_SESSION["Admin"] != 1) { header("Location: /Admin/Dashboard/login.php"); exit(); } $user = $_SESSION["user"]; ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!---ICONS-->
     <link
       rel="stylesheet"
@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="../../1-Assest/AU_Logo.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AUPC Registration</title>
   </head>
   <body>
@@ -31,12 +29,12 @@
         <a>
           <i class="fa-solid fa-grip icons"></i>
         </a>
-        <a href="../Chart/chart.html">
+        <a href="../Chart/chart.html" title="chart">
           <i class="fa-solid fa-chart-line icons"></i>
         </a>
-        <a href="../News/news.html"><i class="fa-solid fa-newspaper icons"></i></a>
+        <a href="../News/news.html"><i class="fa-solid fa-newspaper icons" title="new"></i></a>
       </div>
-      <button id="logout">
+      <button id="logout" title="logout">
         <i class="fa-solid fa-right-from-bracket log"></i>
       </button>
     </div>
@@ -61,9 +59,9 @@
 
     <div id="user-details" class="hidden">
       <div class="modal-content">
-        <a href="" target="_blank" id="userlink"><img src="" id="UserPicture" /></a>
-        <a href="" target="_blank" id="cardlink">
-          <img src="" id="CardPicture" />
+        <a href="" target="_blank" id="userlink"><img src="" id="UserPicture" title="pic" /></a>
+        <a href="" target="_blank" id="cardlink" title="card">
+          <img src="" id="CardPicture" title="Card" />
         </a>
         <span class="close-btn text" onclick="closeDetails()">&times;</span>
         <button id="changepassword">Change User Password</button>
@@ -118,13 +116,13 @@
       <form>
         <input type="password" id="Firstpassword" placeholder="Password" />
         <input type="password" id="confirm" placeholder="Confirm Password" />
-        <button id="submitbutton">Change</button>
+        <button id="submitbutton" type="button">Change</button>
       </form>
       <button id="showbutton">Show</button>
     </div>
     <!--!FILTER-->
     <div id="filterbackground">
-      <select id="strandFilter">
+      <select id="strandFilter" title="strand">
         <option value="all" hidden>Strand</option>
         <option value="all">ALL</option>
         <option value="STEM">STEM</option>
@@ -133,7 +131,7 @@
         <option value="ICT">ICT</option>
         <option value="HE">HE</option>
       </select>
-      <select id="sortOrder">
+      <select id="sortOrder" title="sort">
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
       </select>
